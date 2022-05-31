@@ -1,0 +1,21 @@
+name: volgaitapp
+recipe: laravel
+config:
+  cache: redis
+  webroot: public
+  php: '8.1'
+  composer_version: '2.0.7'
+  via: nginx
+  database: mysql:8.0
+  xdebug: true
+services:
+  node:
+    type: node:16
+    command: npm start
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
+  redis-cli:
+    service: cache
